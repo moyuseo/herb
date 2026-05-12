@@ -33,36 +33,54 @@ export default function TopMovers() {
   if (loading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="animate-pulse bg-gray-100 rounded-xl h-80" />
-        <div className="animate-pulse bg-gray-100 rounded-xl h-80" />
+        <div className="animate-pulse rounded-2xl bg-gradient-to-b from-gray-100 to-gray-50 p-6">
+          <div className="mb-4 h-8 w-32 rounded-lg bg-gray-200" />
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div key={i} className="flex items-center gap-3 py-3">
+              <div className="h-6 w-6 rounded-full bg-gray-200" />
+              <div className="h-4 w-24 rounded bg-gray-200" />
+              <div className="ml-auto h-4 w-16 rounded bg-gray-200" />
+            </div>
+          ))}
+        </div>
+        <div className="animate-pulse rounded-2xl bg-gradient-to-b from-gray-100 to-gray-50 p-6">
+          <div className="mb-4 h-8 w-32 rounded-lg bg-gray-200" />
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div key={i} className="flex items-center gap-3 py-3">
+              <div className="h-6 w-6 rounded-full bg-gray-200" />
+              <div className="h-4 w-24 rounded bg-gray-200" />
+              <div className="ml-auto h-4 w-16 rounded bg-gray-200" />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="rounded-xl border border-gray-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-red-500 to-red-400 px-4 py-3 flex items-center gap-2">
-          <TrendingUp className="h-5 w-5 text-white" />
-          <h3 className="text-white font-semibold">涨幅排行</h3>
+      <div className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden">
+        <div className="bg-gradient-to-r from-red-500 to-rose-400 px-5 py-3.5 flex items-center gap-2.5">
+          <TrendingUp className="h-5 w-5 text-white/90" />
+          <h3 className="text-white font-bold tracking-wide">涨幅排行</h3>
         </div>
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-gray-50">
           {gainers.map((item, index) => (
             <Link
               key={item.id}
               href={`/prices/${item.herb.id}`}
-              className="flex items-center px-3 sm:px-4 py-2.5 hover:bg-red-50 transition-colors"
+              className="flex items-center px-5 py-3 transition-colors duration-200 hover:bg-red-50/60"
             >
-              <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 text-xs font-bold flex items-center justify-center shrink-0">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-50 text-xs font-bold text-red-500">
                 {index + 1}
               </span>
-              <span className="ml-2 sm:ml-3 flex-1 text-sm font-medium text-gray-900 truncate">
+              <span className="ml-3 flex-1 truncate text-sm font-semibold text-gray-800">
                 {item.herb.name}
               </span>
-              <span className="text-sm text-gray-600 mr-2 sm:mr-3 hidden sm:inline">
+              <span className="mr-4 hidden text-sm text-gray-400 sm:inline">
                 ¥{item.price.toFixed(2)}
               </span>
-              <span className="text-sm font-semibold text-red-600">
+              <span className="text-sm font-bold text-red-500">
                 +{item.changePercent.toFixed(2)}%
               </span>
             </Link>
@@ -70,28 +88,28 @@ export default function TopMovers() {
         </div>
       </div>
 
-      <div className="rounded-xl border border-gray-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-green-500 to-green-400 px-4 py-3 flex items-center gap-2">
-          <TrendingDown className="h-5 w-5 text-white" />
-          <h3 className="text-white font-semibold">跌幅排行</h3>
+      <div className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden">
+        <div className="bg-gradient-to-r from-emerald-500 to-green-400 px-5 py-3.5 flex items-center gap-2.5">
+          <TrendingDown className="h-5 w-5 text-white/90" />
+          <h3 className="text-white font-bold tracking-wide">跌幅排行</h3>
         </div>
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-gray-50">
           {losers.map((item, index) => (
             <Link
               key={item.id}
               href={`/prices/${item.herb.id}`}
-              className="flex items-center px-3 sm:px-4 py-2.5 hover:bg-green-50 transition-colors"
+              className="flex items-center px-5 py-3 transition-colors duration-200 hover:bg-green-50/60"
             >
-              <span className="w-6 h-6 rounded-full bg-green-100 text-green-600 text-xs font-bold flex items-center justify-center shrink-0">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-50 text-xs font-bold text-emerald-500">
                 {index + 1}
               </span>
-              <span className="ml-2 sm:ml-3 flex-1 text-sm font-medium text-gray-900 truncate">
+              <span className="ml-3 flex-1 truncate text-sm font-semibold text-gray-800">
                 {item.herb.name}
               </span>
-              <span className="text-sm text-gray-600 mr-2 sm:mr-3 hidden sm:inline">
+              <span className="mr-4 hidden text-sm text-gray-400 sm:inline">
                 ¥{item.price.toFixed(2)}
               </span>
-              <span className="text-sm font-semibold text-green-600">
+              <span className="text-sm font-bold text-emerald-500">
                 {item.changePercent.toFixed(2)}%
               </span>
             </Link>

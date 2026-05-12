@@ -100,23 +100,25 @@ export default function PublishPage() {
 
   if (success) {
     return (
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-white rounded-xl border border-gray-200 p-8 text-center">
-          <CheckCircle className="h-16 w-16 text-primary mx-auto mb-4" />
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">发布成功！</h2>
-          <p className="text-gray-500 mb-6">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-white rounded-2xl border border-border shadow-sm p-10 sm:p-14 text-center animate-scale-in">
+          <div className="mx-auto w-20 h-20 rounded-full bg-primary-50 flex items-center justify-center mb-6">
+            <CheckCircle className="h-10 w-10 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold text-text-primary mb-2">发布成功！</h2>
+          <p className="text-text-secondary leading-relaxed mb-8 max-w-sm mx-auto">
             您的供求信息已提交，审核通过后将对外展示。
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={() => setSuccess(false)}
-              className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+              className="w-full sm:w-auto px-6 py-2.5 border border-border rounded-xl text-sm font-semibold text-text-secondary hover:bg-surface-alt hover:border-primary/30 transition-all"
             >
               继续发布
             </button>
             <button
               onClick={() => router.push("/supply")}
-              className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
+              className="w-full sm:w-auto px-6 py-2.5 bg-gradient-to-r from-primary to-primary-600 text-white rounded-xl text-sm font-semibold shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/30 transition-all"
             >
               查看列表
             </button>
@@ -128,27 +130,27 @@ export default function PublishPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-center gap-3 mb-8 animate-fade-in-up">
         <button
           onClick={() => router.push("/supply")}
-          className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          className="p-2.5 rounded-xl border border-border hover:bg-surface-alt hover:border-primary/30 transition-all"
         >
-          <ArrowLeft className="h-5 w-5 text-gray-600" />
+          <ArrowLeft className="h-5 w-5 text-text-secondary" />
         </button>
-        <h1 className="text-2xl font-bold text-gray-900">发布供求信息</h1>
+        <h1 className="text-2xl font-bold text-text-primary tracking-tight">发布供求信息</h1>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6 space-y-5">
+      <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-border shadow-sm p-6 sm:p-8 space-y-6 animate-fade-in-up delay-100">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            类型 <span className="text-red-500">*</span>
+          <label className="block text-sm font-semibold text-text-primary mb-3">
+            类型 <span className="text-accent-red">*</span>
           </label>
-          <div className="flex gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <label
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+              className={`relative flex flex-col items-center justify-center gap-2 px-5 py-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
                 form.type === "supply"
-                  ? "border-blue-500 bg-blue-50 text-blue-700"
-                  : "border-gray-200 text-gray-600 hover:border-gray-300"
+                  ? "border-blue-500 bg-blue-50/60 shadow-sm shadow-blue-100"
+                  : "border-border hover:border-blue-200 hover:bg-blue-50/30"
               }`}
             >
               <input
@@ -159,13 +161,16 @@ export default function PublishPage() {
                 onChange={handleChange}
                 className="sr-only"
               />
-              <span className="font-medium">供应</span>
+              <span className={`text-xl font-bold ${form.type === "supply" ? "text-blue-600" : "text-text-tertiary"}`}>供应</span>
+              {form.type === "supply" && (
+                <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-blue-500" />
+              )}
             </label>
             <label
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+              className={`relative flex flex-col items-center justify-center gap-2 px-5 py-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
                 form.type === "demand"
-                  ? "border-orange-500 bg-orange-50 text-orange-700"
-                  : "border-gray-200 text-gray-600 hover:border-gray-300"
+                  ? "border-amber-500 bg-amber-50/60 shadow-sm shadow-amber-100"
+                  : "border-border hover:border-amber-200 hover:bg-amber-50/30"
               }`}
             >
               <input
@@ -176,23 +181,26 @@ export default function PublishPage() {
                 onChange={handleChange}
                 className="sr-only"
               />
-              <span className="font-medium">求购</span>
+              <span className={`text-xl font-bold ${form.type === "demand" ? "text-amber-600" : "text-text-tertiary"}`}>求购</span>
+              {form.type === "demand" && (
+                <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-amber-500" />
+              )}
             </label>
           </div>
-          {errors.type && <p className="mt-1 text-sm text-red-500">{errors.type}</p>}
+          {errors.type && <p className="mt-2 text-sm text-accent-red font-medium">{errors.type}</p>}
         </div>
 
         <div>
-          <label htmlFor="herbId" className="block text-sm font-medium text-gray-700 mb-2">
-            品种 <span className="text-red-500">*</span>
+          <label htmlFor="herbId" className="block text-sm font-semibold text-text-primary mb-3">
+            品种 <span className="text-accent-red">*</span>
           </label>
           <select
             id="herbId"
             name="herbId"
             value={form.herbId}
             onChange={handleChange}
-            className={`w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white ${
-              errors.herbId ? "border-red-500" : "border-gray-300"
+            className={`w-full px-4 py-3 border rounded-xl text-sm bg-white transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary ${
+              errors.herbId ? "border-accent-red" : "border-border hover:border-primary/30"
             }`}
           >
             <option value="">请选择品种</option>
@@ -202,13 +210,13 @@ export default function PublishPage() {
               </option>
             ))}
           </select>
-          {errors.herbId && <p className="mt-1 text-sm text-red-500">{errors.herbId}</p>}
+          {errors.herbId && <p className="mt-2 text-sm text-accent-red font-medium">{errors.herbId}</p>}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label htmlFor="quantity" className="block text-sm font-medium text-gray-700 mb-2">
-              数量 <span className="text-red-500">*</span>
+            <label htmlFor="quantity" className="block text-sm font-semibold text-text-primary mb-3">
+              数量 <span className="text-accent-red">*</span>
             </label>
             <input
               id="quantity"
@@ -217,15 +225,15 @@ export default function PublishPage() {
               value={form.quantity}
               onChange={handleChange}
               placeholder="如：100kg"
-              className={`w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
-                errors.quantity ? "border-red-500" : "border-gray-300"
+              className={`w-full px-4 py-3 border rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary ${
+                errors.quantity ? "border-accent-red" : "border-border hover:border-primary/30"
               }`}
             />
-            {errors.quantity && <p className="mt-1 text-sm text-red-500">{errors.quantity}</p>}
+            {errors.quantity && <p className="mt-2 text-sm text-accent-red font-medium">{errors.quantity}</p>}
           </div>
 
           <div>
-            <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="price" className="block text-sm font-semibold text-text-primary mb-3">
               价格
             </label>
             <input
@@ -235,13 +243,13 @@ export default function PublishPage() {
               value={form.price}
               onChange={handleChange}
               placeholder="如：50元/kg 或 面议"
-              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-4 py-3 border border-border rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary hover:border-primary/30"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="origin" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="origin" className="block text-sm font-semibold text-text-primary mb-3">
             产地
           </label>
           <input
@@ -251,13 +259,13 @@ export default function PublishPage() {
             value={form.origin}
             onChange={handleChange}
             placeholder="如：甘肃岷县"
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="w-full px-4 py-3 border border-border rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary hover:border-primary/30"
           />
         </div>
 
         <div>
-          <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-2">
-            联系方式 <span className="text-red-500">*</span>
+          <label htmlFor="contact" className="block text-sm font-semibold text-text-primary mb-3">
+            联系方式 <span className="text-accent-red">*</span>
           </label>
           <input
             id="contact"
@@ -266,15 +274,15 @@ export default function PublishPage() {
             value={form.contact}
             onChange={handleChange}
             placeholder="手机号或微信号"
-            className={`w-full px-4 py-2.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
-              errors.contact ? "border-red-500" : "border-gray-300"
+            className={`w-full px-4 py-3 border rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary ${
+              errors.contact ? "border-accent-red" : "border-border hover:border-primary/30"
             }`}
           />
-          {errors.contact && <p className="mt-1 text-sm text-red-500">{errors.contact}</p>}
+          {errors.contact && <p className="mt-2 text-sm text-accent-red font-medium">{errors.contact}</p>}
         </div>
 
         <div>
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="description" className="block text-sm font-semibold text-text-primary mb-3">
             描述
           </label>
           <textarea
@@ -284,12 +292,12 @@ export default function PublishPage() {
             onChange={handleChange}
             rows={4}
             placeholder="请输入详细描述信息..."
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+            className="w-full px-4 py-3 border border-border rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary hover:border-primary/30 resize-none"
           />
         </div>
 
         {errors.submit && (
-          <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm">
+          <div className="p-4 rounded-xl bg-red-50 border border-red-100 text-accent-red text-sm font-medium">
             {errors.submit}
           </div>
         )}
@@ -297,7 +305,7 @@ export default function PublishPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-primary to-primary-600 text-white rounded-xl text-sm font-semibold shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
         >
           <Send className="h-4 w-4" />
           {loading ? "提交中..." : "发布信息"}

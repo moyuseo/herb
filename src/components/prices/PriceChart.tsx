@@ -5,7 +5,9 @@ import dynamic from "next/dynamic";
 
 const ReactECharts = dynamic(() => import("echarts-for-react"), {
   ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-100 rounded-xl h-96" />,
+  loading: () => (
+    <div className="animate-pulse rounded-2xl bg-gradient-to-b from-gray-100 to-gray-50 h-96" />
+  ),
 });
 
 const timeRanges = [
@@ -106,15 +108,15 @@ export default function PriceChart({ herbId }: { herbId: number }) {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-5">
         {timeRanges.map((range) => (
           <button
             key={range.days}
             onClick={() => setDays(range.days)}
-            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200 ${
               days === range.days
-                ? "bg-primary text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                ? "bg-primary text-white shadow-sm shadow-primary/25"
+                : "bg-gray-50 text-gray-500 hover:bg-primary/10 hover:text-primary"
             }`}
           >
             {range.label}
@@ -123,28 +125,36 @@ export default function PriceChart({ herbId }: { herbId: number }) {
       </div>
 
       {loading ? (
-        <div className="animate-pulse bg-gray-100 rounded-xl h-96" />
+        <div className="animate-pulse rounded-2xl bg-gradient-to-b from-gray-100 to-gray-50 h-64 sm:h-96" />
       ) : history.length > 0 ? (
-        <ReactECharts option={option} style={{ height: "100%", width: "100%" }} className="h-64 sm:h-96" />
+        <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+          <ReactECharts
+            option={option}
+            style={{ height: "100%", width: "100%" }}
+            className="h-64 sm:h-96"
+          />
+        </div>
       ) : (
-        <div className="text-center py-16 text-gray-400">暂无历史数据</div>
+        <div className="rounded-2xl border border-gray-100 bg-gray-50/50 py-20 text-center text-gray-400">
+          暂无历史数据
+        </div>
       )}
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
         <StatCard
           label="最高价"
           value={`¥${maxPrice.toFixed(2)}`}
-          color="text-red-600"
+          color="text-red-500"
         />
         <StatCard
           label="最低价"
           value={`¥${minPrice.toFixed(2)}`}
-          color="text-green-600"
+          color="text-emerald-500"
         />
         <StatCard
           label="平均价"
           value={`¥${avgPrice.toFixed(2)}`}
-          color="text-blue-600"
+          color="text-blue-500"
         />
         <StatCard
           label="最新价"
@@ -166,9 +176,11 @@ function StatCard({
   color: string;
 }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-      <p className="text-sm text-gray-500">{label}</p>
-      <p className={`text-xl font-bold mt-1 ${color}`}>{value}</p>
+    <div className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition-shadow duration-200 hover:shadow-md">
+      <p className="text-xs font-medium tracking-wide text-gray-400 uppercase">
+        {label}
+      </p>
+      <p className={`mt-2 text-xl font-bold ${color}`}>{value}</p>
     </div>
   );
 }

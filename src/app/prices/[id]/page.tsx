@@ -47,75 +47,92 @@ export default async function HerbDetailPage({
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <Link
         href="/prices"
-        className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary transition-colors mb-6"
+        className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-primary transition-all duration-200 mb-8 group"
       >
-        <ArrowLeft className="h-4 w-4" />
+        <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform duration-200" />
         返回行情列表
       </Link>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-1 order-2 lg:order-1">
-          <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
-            <h1 className="text-2xl font-bold text-gray-900">{herb.name}</h1>
+          <div className="rounded-2xl border border-gray-100 bg-white shadow-sm p-6 sm:p-8 sticky top-24">
+            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+              {herb.name}
+            </h1>
             {herb.aliases && (
-              <p className="text-sm text-gray-500 mt-1 break-words">
+              <p className="text-sm text-gray-400 mt-1.5 break-words">
                 别名：{herb.aliases}
               </p>
             )}
 
-            <div className="mt-4 space-y-3">
+            <div className="mt-6 space-y-4">
               {herb.category && (
-                <div>
-                  <span className="text-sm text-gray-500">分类</span>
-                  <p className="text-sm font-medium text-gray-900">
-                    {herb.category}
-                  </p>
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50/80">
+                  <div className="w-1.5 h-full min-h-[2rem] rounded-full bg-primary-200 shrink-0 self-stretch" />
+                  <div>
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">分类</p>
+                    <p className="text-sm font-medium text-gray-800 mt-0.5">
+                      {herb.category}
+                    </p>
+                  </div>
                 </div>
               )}
               {herb.origin && (
-                <div>
-                  <span className="text-sm text-gray-500">产地</span>
-                  <p className="text-sm font-medium text-gray-900">
-                    {herb.origin}
-                  </p>
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50/80">
+                  <div className="w-1.5 h-full min-h-[2rem] rounded-full bg-emerald-200 shrink-0 self-stretch" />
+                  <div>
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">产地</p>
+                    <p className="text-sm font-medium text-gray-800 mt-0.5">
+                      {herb.origin}
+                    </p>
+                  </div>
                 </div>
               )}
               {herb.specGrade && (
-                <div>
-                  <span className="text-sm text-gray-500">规格等级</span>
-                  <p className="text-sm font-medium text-gray-900">
-                    {herb.specGrade}
-                  </p>
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50/80">
+                  <div className="w-1.5 h-full min-h-[2rem] rounded-full bg-sky-200 shrink-0 self-stretch" />
+                  <div>
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">规格等级</p>
+                    <p className="text-sm font-medium text-gray-800 mt-0.5">
+                      {herb.specGrade}
+                    </p>
+                  </div>
                 </div>
               )}
               {herb.properties && (
-                <div>
-                  <span className="text-sm text-gray-500">性味归经</span>
-                  <p className="text-sm font-medium text-gray-900">
-                    {herb.properties}
-                  </p>
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50/80">
+                  <div className="w-1.5 h-full min-h-[2rem] rounded-full bg-violet-200 shrink-0 self-stretch" />
+                  <div>
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">性味归经</p>
+                    <p className="text-sm font-medium text-gray-800 mt-0.5 leading-relaxed">
+                      {herb.properties}
+                    </p>
+                  </div>
                 </div>
               )}
               {herb.efficacy && (
-                <div>
-                  <span className="text-sm text-gray-500">功效</span>
-                  <p className="text-sm font-medium text-gray-900">
-                    {herb.efficacy}
-                  </p>
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50/80">
+                  <div className="w-1.5 h-full min-h-[2rem] rounded-full bg-amber-200 shrink-0 self-stretch" />
+                  <div>
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">功效</p>
+                    <p className="text-sm font-medium text-gray-800 mt-0.5 leading-relaxed">
+                      {herb.efficacy}
+                    </p>
+                  </div>
                 </div>
               )}
               {latestQuote && (
-                <div className="pt-3 border-t border-gray-200">
-                  <span className="text-sm text-gray-500">最新价格</span>
-                  <div className="flex items-baseline gap-2 mt-1">
-                    <span className="text-2xl font-bold text-gray-900">
+                <div className="pt-5 mt-2 border-t border-gray-100">
+                  <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">最新价格</p>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-3xl font-bold text-gray-900 tracking-tight">
                       ¥{latestQuote.price.toFixed(2)}
                     </span>
                     <span
-                      className={`text-sm font-semibold ${
+                      className={`inline-flex items-center px-2.5 py-1 rounded-lg text-sm font-semibold ${
                         latestQuote.change >= 0
-                          ? "text-red-600"
-                          : "text-green-600"
+                          ? "bg-red-50 text-red-600"
+                          : "bg-green-50 text-green-600"
                       }`}
                     >
                       {latestQuote.change >= 0 ? "+" : ""}
@@ -125,8 +142,8 @@ export default async function HerbDetailPage({
                     </span>
                   </div>
                   {latestQuote.origin && (
-                    <p className="text-xs text-gray-400 mt-1">
-                      产地：{latestQuote.origin} | 规格：{latestQuote.spec || "-"}
+                    <p className="text-xs text-gray-400 mt-2">
+                      产地：{latestQuote.origin} · 规格：{latestQuote.spec || "-"}
                     </p>
                   )}
                 </div>
@@ -136,8 +153,9 @@ export default async function HerbDetailPage({
         </div>
 
         <div className="lg:col-span-2 order-1 lg:order-2">
-          <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="rounded-2xl border border-gray-100 bg-white shadow-sm p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2.5">
+              <div className="w-1.5 h-6 rounded-full bg-primary" />
               历史走势
             </h2>
             <PriceChart herbId={herb.id} />

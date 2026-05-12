@@ -24,45 +24,56 @@ export default function AdminDashboard() {
       label: "品种数",
       value: stats?.herbCount ?? "-",
       icon: Leaf,
-      color: "bg-green-500",
+      accent: "bg-emerald-500",
+      bg: "bg-emerald-50",
+      text: "text-emerald-600",
     },
     {
       label: "行情数",
       value: stats?.quoteCount ?? "-",
       icon: TrendingUp,
-      color: "bg-blue-500",
+      accent: "bg-blue-500",
+      bg: "bg-blue-50",
+      text: "text-blue-600",
     },
     {
       label: "资讯数",
       value: stats?.newsCount ?? "-",
       icon: Newspaper,
-      color: "bg-yellow-500",
+      accent: "bg-amber-500",
+      bg: "bg-amber-50",
+      text: "text-amber-600",
     },
     {
       label: "待审核供求数",
       value: stats?.pendingSupplyCount ?? "-",
       icon: ClipboardCheck,
-      color: "bg-red-500",
+      accent: "bg-rose-500",
+      bg: "bg-rose-50",
+      text: "text-rose-600",
     },
   ];
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">
+      <h2 className="text-2xl font-bold text-gray-800 mb-8 tracking-tight">
         欢迎来到管理后台
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cards.map((card) => {
           const Icon = card.icon;
           return (
-            <div key={card.label} className="bg-white rounded-lg shadow p-6">
+            <div
+              key={card.label}
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+            >
               <div className="flex items-center gap-4">
-                <div className={`${card.color} p-3 rounded-lg`}>
-                  <Icon className="h-6 w-6 text-white" />
+                <div className={`${card.bg} p-3.5 rounded-2xl`}>
+                  <Icon className={`h-6 w-6 ${card.text}`} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">{card.label}</p>
-                  <p className="text-2xl font-bold text-gray-800">
+                  <p className="text-sm font-medium text-gray-500">{card.label}</p>
+                  <p className="text-3xl font-bold text-gray-800 mt-0.5">
                     {card.value}
                   </p>
                 </div>

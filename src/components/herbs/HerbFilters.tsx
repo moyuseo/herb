@@ -61,16 +61,16 @@ export default function HerbFilters() {
   );
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div className="flex flex-wrap gap-2">
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
             onClick={() => handleCategoryChange(cat)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200 ${
               currentCategory === cat
-                ? "bg-primary text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-primary-100 hover:text-primary"
+                ? "bg-primary text-white shadow-sm shadow-primary/25"
+                : "bg-gray-50 text-gray-600 hover:bg-primary/10 hover:text-primary"
             }`}
           >
             {cat}
@@ -78,20 +78,20 @@ export default function HerbFilters() {
         ))}
       </div>
 
-      <form onSubmit={handleSearch} className="flex gap-2">
-        <div className="relative flex-1 max-w-md w-full sm:w-auto">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+      <form onSubmit={handleSearch} className="flex gap-3">
+        <div className="relative flex-1 max-w-md">
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
           <input
             type="text"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             placeholder="搜索品种名称或别名..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm"
+            className="w-full rounded-lg border border-gray-200 bg-white py-2.5 pl-10 pr-4 text-sm text-gray-700 placeholder-gray-400 transition-all duration-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
         </div>
         <button
           type="submit"
-          className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
+          className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-md hover:shadow-primary/25"
         >
           搜索
         </button>

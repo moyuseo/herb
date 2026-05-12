@@ -147,84 +147,84 @@ export default function HerbsAdminPage() {
   };
 
   const inputCls =
-    "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm";
-  const labelCls = "block text-sm font-medium text-gray-700 mb-1";
+    "w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:border-primary-500 text-sm bg-gray-50/50 transition-colors duration-200";
+  const labelCls = "block text-sm font-medium text-gray-700 mb-1.5";
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-gray-800">品种管理</h2>
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-2xl font-bold text-gray-800 tracking-tight">品种管理</h2>
         <button
           onClick={openAddModal}
-          className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 text-sm"
+          className="flex items-center gap-2 px-5 py-2.5 bg-primary-600 text-white rounded-xl hover:bg-primary-700 text-sm font-medium shadow-sm hover:shadow transition-all duration-200"
         >
           <Plus className="h-4 w-4" />
           新增品种
         </button>
       </div>
 
-      <div className="bg-white rounded-lg shadow overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+            <thead>
+              <tr className="border-b border-gray-100">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   名称
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   分类
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   产地
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   操作
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-50">
               {loading ? (
                 <tr>
-                  <td colSpan={4} className="px-4 py-8 text-center text-gray-400">
+                  <td colSpan={4} className="px-6 py-12 text-center text-gray-400">
                     加载中...
                   </td>
                 </tr>
               ) : herbs.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="px-4 py-8 text-center text-gray-400">
+                  <td colSpan={4} className="px-6 py-12 text-center text-gray-400">
                     暂无数据
                   </td>
                 </tr>
               ) : (
                 herbs.map((herb) => (
-                  <tr key={herb.id} className="hover:bg-gray-50">
-                    <td className="px-4 py-3 font-medium text-gray-800">
+                  <tr key={herb.id} className="hover:bg-gray-50/50 transition-colors duration-150">
+                    <td className="px-6 py-4 font-semibold text-gray-800">
                       {herb.name}
                     </td>
-                    <td className="px-4 py-3 text-gray-600">{herb.category}</td>
-                    <td className="px-4 py-3 text-gray-600">
+                    <td className="px-6 py-4 text-gray-600">{herb.category}</td>
+                    <td className="px-6 py-4 text-gray-600">
                       {herb.origin || "-"}
                     </td>
-                    <td className="px-4 py-3">
-                      <div className="flex items-center gap-2">
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-1">
                         <button
                           onClick={() => openEditModal(herb)}
-                          className="p-1.5 text-blue-600 hover:bg-blue-50 rounded"
+                          className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-150"
                           title="编辑"
                         >
                           <Pencil className="h-4 w-4" />
                         </button>
                         {deleteConfirm === herb.id ? (
-                          <div className="flex items-center gap-1">
+                          <div className="flex items-center gap-1.5 ml-1">
                             <button
                               onClick={() => handleDelete(herb.id)}
-                              className="px-2 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-700"
+                              className="px-3 py-1.5 text-xs font-medium bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-150"
                             >
                               确认
                             </button>
                             <button
                               onClick={() => setDeleteConfirm(null)}
-                              className="px-2 py-1 text-xs bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
+                              className="px-3 py-1.5 text-xs font-medium bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors duration-150"
                             >
                               取消
                             </button>
@@ -232,7 +232,7 @@ export default function HerbsAdminPage() {
                         ) : (
                           <button
                             onClick={() => setDeleteConfirm(herb.id)}
-                            className="p-1.5 text-red-600 hover:bg-red-50 rounded"
+                            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors duration-150"
                             title="删除"
                           >
                             <Trash2 className="h-4 w-4" />
@@ -247,7 +247,7 @@ export default function HerbsAdminPage() {
           </table>
         </div>
         {totalPages > 1 && (
-          <div className="flex items-center justify-between px-4 py-3 border-t bg-gray-50">
+          <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100 bg-gray-50/30">
             <span className="text-sm text-gray-500">
               共 {total} 条，第 {page}/{totalPages} 页
             </span>
@@ -255,14 +255,14 @@ export default function HerbsAdminPage() {
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page <= 1}
-                className="px-3 py-1 text-sm border rounded-md disabled:opacity-50 hover:bg-gray-100"
+                className="px-4 py-1.5 text-sm font-medium border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-colors duration-150"
               >
                 上一页
               </button>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={page >= totalPages}
-                className="px-3 py-1 text-sm border rounded-md disabled:opacity-50 hover:bg-gray-100"
+                className="px-4 py-1.5 text-sm font-medium border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-colors duration-150"
               >
                 下一页
               </button>
@@ -393,17 +393,17 @@ export default function HerbsAdminPage() {
               className={inputCls}
             />
           </div>
-          <div className="flex justify-end gap-3 pt-4 border-t">
+          <div className="flex justify-end gap-3 pt-5 border-t border-gray-100">
             <button
               onClick={() => setModalOpen(false)}
-              className="px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-50"
+              className="px-5 py-2.5 text-sm font-medium border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors duration-200"
             >
               取消
             </button>
             <button
               onClick={handleSubmit}
               disabled={saving || !form.name || !form.category}
-              className="px-4 py-2 text-sm bg-primary-600 text-white rounded-md hover:bg-primary-700 disabled:opacity-50"
+              className="px-5 py-2.5 text-sm font-medium bg-primary-600 text-white rounded-xl hover:bg-primary-700 disabled:opacity-50 transition-colors duration-200"
             >
               {saving ? "保存中..." : "保存"}
             </button>

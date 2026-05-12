@@ -25,9 +25,9 @@ const STATUS_OPTIONS = [
 ];
 
 const statusLabel: Record<string, { text: string; cls: string }> = {
-  pending: { text: "待审核", cls: "bg-yellow-100 text-yellow-700" },
-  approved: { text: "已通过", cls: "bg-green-100 text-green-700" },
-  rejected: { text: "已拒绝", cls: "bg-red-100 text-red-700" },
+  pending: { text: "待审核", cls: "bg-amber-50 text-amber-700" },
+  approved: { text: "已通过", cls: "bg-emerald-50 text-emerald-700" },
+  rejected: { text: "已拒绝", cls: "bg-red-50 text-red-700" },
 };
 
 export default function SupplyAdminPage() {
@@ -79,15 +79,15 @@ export default function SupplyAdminPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-gray-800">供求审核</h2>
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-2xl font-bold text-gray-800 tracking-tight">供求审核</h2>
         <select
           value={filterStatus}
           onChange={(e) => {
             setFilterStatus(e.target.value);
             setPage(1);
           }}
-          className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+          className="px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:border-primary-500 transition-colors duration-200"
         >
           {STATUS_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -97,40 +97,40 @@ export default function SupplyAdminPage() {
         </select>
       </div>
 
-      <div className="bg-white rounded-lg shadow overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+            <thead>
+              <tr className="border-b border-gray-100">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   类型
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   品种
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   数量
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   价格
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   联系方式
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   状态
                 </th>
-                <th className="px-4 py-3 text-left font-medium text-gray-600">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   操作
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-50">
               {loading ? (
                 <tr>
                   <td
                     colSpan={7}
-                    className="px-4 py-8 text-center text-gray-400"
+                    className="px-6 py-12 text-center text-gray-400"
                   >
                     加载中...
                   </td>
@@ -139,7 +139,7 @@ export default function SupplyAdminPage() {
                 <tr>
                   <td
                     colSpan={7}
-                    className="px-4 py-8 text-center text-gray-400"
+                    className="px-6 py-12 text-center text-gray-400"
                   >
                     暂无数据
                   </td>
@@ -151,56 +151,56 @@ export default function SupplyAdminPage() {
                     cls: "bg-gray-100 text-gray-600",
                   };
                   return (
-                    <tr key={item.id} className="hover:bg-gray-50">
-                      <td className="px-4 py-3">
+                    <tr key={item.id} className="hover:bg-gray-50/50 transition-colors duration-150">
+                      <td className="px-6 py-4">
                         <span
-                          className={`inline-flex px-2 py-0.5 text-xs font-medium rounded-full ${
+                          className={`inline-flex px-2.5 py-1 text-xs font-semibold rounded-lg ${
                             item.type === "supply"
-                              ? "bg-blue-100 text-blue-700"
-                              : "bg-purple-100 text-purple-700"
+                              ? "bg-blue-50 text-blue-700"
+                              : "bg-violet-50 text-violet-700"
                           }`}
                         >
                           {item.type === "supply" ? "供应" : "求购"}
                         </span>
                       </td>
-                      <td className="px-4 py-3 font-medium text-gray-800">
+                      <td className="px-6 py-4 font-semibold text-gray-800">
                         {item.herb?.name || "-"}
                       </td>
-                      <td className="px-4 py-3 text-gray-600">
+                      <td className="px-6 py-4 text-gray-600">
                         {item.quantity}
                       </td>
-                      <td className="px-4 py-3 text-gray-600">
+                      <td className="px-6 py-4 text-gray-600">
                         {item.price || "-"}
                       </td>
-                      <td className="px-4 py-3 text-gray-600">
+                      <td className="px-6 py-4 text-gray-600">
                         {item.contact}
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="px-6 py-4">
                         <span
-                          className={`inline-flex px-2 py-0.5 text-xs font-medium rounded-full ${sl.cls}`}
+                          className={`inline-flex px-2.5 py-1 text-xs font-semibold rounded-lg ${sl.cls}`}
                         >
                           {sl.text}
                         </span>
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="px-6 py-4">
                         {item.status === "pending" ? (
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() =>
                                 handleReview(item.id, "approved")
                               }
-                              className="flex items-center gap-1 px-2.5 py-1 text-xs bg-green-600 text-white rounded hover:bg-green-700"
+                              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 shadow-sm transition-colors duration-200"
                             >
-                              <Check className="h-3 w-3" />
+                              <Check className="h-3.5 w-3.5" />
                               通过
                             </button>
                             <button
                               onClick={() =>
                                 handleReview(item.id, "rejected")
                               }
-                              className="flex items-center gap-1 px-2.5 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-700"
+                              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium bg-red-600 text-white rounded-lg hover:bg-red-700 shadow-sm transition-colors duration-200"
                             >
-                              <X className="h-3 w-3" />
+                              <X className="h-3.5 w-3.5" />
                               拒绝
                             </button>
                           </div>
@@ -216,7 +216,7 @@ export default function SupplyAdminPage() {
           </table>
         </div>
         {totalPages > 1 && (
-          <div className="flex items-center justify-between px-4 py-3 border-t bg-gray-50">
+          <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100 bg-gray-50/30">
             <span className="text-sm text-gray-500">
               共 {total} 条，第 {page}/{totalPages} 页
             </span>
@@ -224,14 +224,14 @@ export default function SupplyAdminPage() {
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page <= 1}
-                className="px-3 py-1 text-sm border rounded-md disabled:opacity-50 hover:bg-gray-100"
+                className="px-4 py-1.5 text-sm font-medium border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-colors duration-150"
               >
                 上一页
               </button>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={page >= totalPages}
-                className="px-3 py-1 text-sm border rounded-md disabled:opacity-50 hover:bg-gray-100"
+                className="px-4 py-1.5 text-sm font-medium border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-colors duration-150"
               >
                 下一页
               </button>

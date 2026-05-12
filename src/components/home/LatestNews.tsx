@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Newspaper } from "lucide-react";
 
 interface NewsItem {
   id: number;
@@ -12,6 +13,16 @@ interface LatestNewsProps {
   news: NewsItem[];
 }
 
+const categoryStyles: Record<string, string> = {
+  行业动态: "bg-blue-50 text-blue-700 ring-1 ring-blue-200/60",
+  政策法规: "bg-red-50 text-red-700 ring-1 ring-red-200/60",
+  市场分析: "bg-amber-50 text-amber-700 ring-1 ring-amber-200/60",
+  产地信息: "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/60",
+  种植技术: "bg-purple-50 text-purple-700 ring-1 ring-purple-200/60",
+};
+
+const defaultCategoryStyle = "bg-gray-50 text-gray-600 ring-1 ring-gray-200/60";
+
 function formatDate(date: Date | null): string {
   if (!date) return "";
   const d = new Date(date);
@@ -20,26 +31,33 @@ function formatDate(date: Date | null): string {
 
 export default function LatestNews({ news }: LatestNewsProps) {
   if (news.length === 0) {
-    return <p className="text-gray-500 text-center py-8">暂无资讯</p>;
+    return (
+      <div className="flex flex-col items-center justify-center py-14 text-gray-400">
+        <Newspaper className="h-10 w-10 mb-3 stroke-[1.2]" />
+        <p className="text-sm font-medium">暂无资讯</p>
+      </div>
+    );
   }
 
   return (
-    <ul className="divide-y divide-gray-100">
+    <ul className="divide-y divide-gray-100/80">
       {news.map((item) => (
-        <li key={item.id} className="py-3 first:pt-0 last:pb-0">
+        <li key={item.id}>
           <Link
             href={`/news/${item.id}`}
-            className="flex items-center justify-between group hover:bg-gray-50 -mx-2 px-2 py-1 rounded-lg transition-colors"
+            className="flex items-center justify-between gap-3 -mx-3 px-3 py-3 rounded-lg transition-all duration-200 hover:bg-primary-50/60 group"
           >
-            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-              <span className="shrink-0 text-xs px-1.5 sm:px-2 py-0.5 rounded-full bg-secondary-100 text-secondary-800 font-medium">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <span
+                className={`shrink-0 text-[11px] leading-tight px-2 py-0.5 rounded-full font-medium tracking-wide ${categoryStyles[item.category] ?? defaultCategoryStyle}`}
+              >
                 {item.category}
               </span>
-              <span className="text-sm text-gray-800 group-hover:text-primary truncate">
+              <span className="text-sm text-gray-700 group-hover:text-primary transition-colors duration-200 truncate">
                 {item.title}
               </span>
             </div>
-            <time className="shrink-0 text-xs text-gray-400 ml-2 sm:ml-3 hidden sm:block">
+            <time className="shrink-0 text-xs text-gray-400 tabular-nums">
               {formatDate(item.publishedAt ?? item.createdAt)}
             </time>
           </Link>
