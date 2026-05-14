@@ -2,7 +2,7 @@ import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
 import { PrismaClient } from "../src/generated/prisma/client";
 
 const adapter = new PrismaBetterSqlite3({
-  url: "file:./dev.db",
+  url: "file:./prisma/dev.db",
 });
 
 const prisma = new PrismaClient({ adapter });
@@ -1926,7 +1926,7 @@ async function main() {
 
     await prisma.priceIndex.create({
       data: {
-        name: "中药材综合指数",
+        name: "综合指数",
         value: compositeIndexValue,
         change: Math.round(change * 100) / 100,
         changePercent: Math.round(changePercent * 100) / 100,
