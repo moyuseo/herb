@@ -38,7 +38,7 @@ onMounted(() => {
           type: 'line',
           smooth: true,
           symbol: 'none',
-          lineStyle: { color: '#1B5E20', width: 2 },
+          lineStyle: { color: '#1B4332', width: 2 },
           areaStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
               { offset: 0, color: 'rgba(27,94,32,0.25)' },
@@ -105,7 +105,7 @@ function handleResize() {
 <template>
   <div class="min-h-screen bg-[#FAF8F5]">
     <div class="max-w-6xl mx-auto px-4 py-8">
-      <h1 class="text-2xl font-bold text-[#1B5E20] mb-6" style="font-family: 'Noto Serif SC', serif;">数据中心</h1>
+      <h1 class="text-2xl font-bold text-[#1B4332] mb-6" style="font-family: 'Noto Serif SC', serif;">数据中心</h1>
 
       <div class="grid grid-cols-3 gap-4 mb-6">
         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center">
@@ -123,12 +123,12 @@ function handleResize() {
       </div>
 
       <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 mb-6">
-        <h2 class="text-lg font-bold text-[#1B5E20] mb-4" style="font-family: 'Noto Serif SC', serif;">市场综合指数</h2>
+        <h2 class="text-lg font-bold text-[#1B4332] mb-4" style="font-family: 'Noto Serif SC', serif;">市场综合指数</h2>
         <div ref="lineChartRef" class="w-full h-72"></div>
       </div>
 
       <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-        <h2 class="text-lg font-bold text-[#1B5E20] mb-4" style="font-family: 'Noto Serif SC', serif;">涨跌统计</h2>
+        <h2 class="text-lg font-bold text-[#1B4332] mb-4" style="font-family: 'Noto Serif SC', serif;">涨跌统计</h2>
         <div ref="barChartRef" class="w-full h-64"></div>
       </div>
     </div>

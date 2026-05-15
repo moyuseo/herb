@@ -9,7 +9,7 @@ export default {
     },
     extend: {
       colors: {
-        primary: '#1B5E20',
+        primary: '#1B4332',
         accent: '#C8A951',
         'tcm-up': '#E53935',
         'tcm-down': '#43A047',

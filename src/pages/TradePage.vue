@@ -23,23 +23,23 @@ const filteredDemands = computed(() => {
 <template>
   <div class="min-h-screen bg-[#FAF8F5]">
     <div class="max-w-5xl mx-auto px-4 py-8">
-      <h1 class="text-2xl font-bold text-[#1B5E20] mb-6" style="font-family: 'Noto Serif SC', serif;">供求大厅</h1>
+      <h1 class="text-2xl font-bold text-[#1B4332] mb-6" style="font-family: 'Noto Serif SC', serif;">供求大厅</h1>
 
       <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden mb-6">
         <div class="flex border-b border-gray-100">
           <button
-            :class="['flex-1 py-3 text-center text-sm font-medium transition-colors', activeTab === 'supply' ? 'text-[#1B5E20] border-b-2 border-[#1B5E20] bg-green-50/50' : 'text-gray-500 hover:text-[#1B5E20]']"
+            :class="['flex-1 py-3 text-center text-sm font-medium transition-colors', activeTab === 'supply' ? 'text-[#1B4332] border-b-2 border-[#1B4332] bg-green-50/50' : 'text-gray-500 hover:text-[#1B4332]']"
             @click="activeTab = 'supply'"
           >供应信息</button>
           <button
-            :class="['flex-1 py-3 text-center text-sm font-medium transition-colors', activeTab === 'demand' ? 'text-[#1B5E20] border-b-2 border-[#1B5E20] bg-green-50/50' : 'text-gray-500 hover:text-[#1B5E20]']"
+            :class="['flex-1 py-3 text-center text-sm font-medium transition-colors', activeTab === 'demand' ? 'text-[#1B4332] border-b-2 border-[#1B4332] bg-green-50/50' : 'text-gray-500 hover:text-[#1B4332]']"
             @click="activeTab = 'demand'"
           >求购信息</button>
         </div>
         <div class="p-4">
           <div class="relative w-64">
             <Search class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-            <input v-model="keyword" placeholder="搜索药材名称或产地" class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:border-[#1B5E20]" />
+            <input v-model="keyword" placeholder="搜索药材名称或产地" class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:border-[#1B4332]" />
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ const filteredDemands = computed(() => {
         <div v-for="item in filteredSupplies" :key="item.id" class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
           <div class="flex items-center gap-2 mb-3">
             <span class="bg-green-600 text-white text-xs font-bold px-2 py-0.5 rounded">供</span>
-            <span class="font-bold text-[#1B5E20]">{{ item.herbName }}</span>
+            <span class="font-bold text-[#1B4332]">{{ item.herbName }}</span>
             <span class="text-xs text-gray-400">{{ item.spec }}</span>
           </div>
           <div class="grid grid-cols-2 gap-y-2 text-sm text-gray-600">
@@ -68,7 +68,7 @@ const filteredDemands = computed(() => {
         <div v-for="item in filteredDemands" :key="item.id" class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
           <div class="flex items-center gap-2 mb-3">
             <span class="bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded">求</span>
-            <span class="font-bold text-[#1B5E20]">{{ item.herbName }}</span>
+            <span class="font-bold text-[#1B4332]">{{ item.herbName }}</span>
             <span class="text-xs text-gray-400">{{ item.spec }}</span>
           </div>
           <div class="grid grid-cols-2 gap-y-2 text-sm text-gray-600">

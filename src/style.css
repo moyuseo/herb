@@ -54,13 +54,13 @@ body {
 }
 
 .el-table .el-table__row:hover > td {
-  background-color: rgba(27, 94, 32, 0.04) !important;
+  background-color: rgba(27, 68, 50, 0.04) !important;
 }
 
 .el-tabs__item.is-active {
-  color: #1B5E20 !important;
+  color: #1B4332 !important;
 }
 
 .el-tabs__active-bar {
-  background-color: #1B5E20 !important;
+  background-color: #1B4332 !important;
 }

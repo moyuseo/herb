@@ -33,7 +33,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] overflow-hidden">
+    <section class="relative bg-gradient-to-br from-[#1B4332] via-[#2D5A47] to-[#388E3C] overflow-hidden">
       <div class="absolute inset-0 opacity-10">
         <div class="absolute top-10 left-10 w-64 h-64 rounded-full bg-[#C8A951] blur-3xl"></div>
         <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-white blur-3xl"></div>
@@ -76,7 +76,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
       <!-- Category Navigation -->
       <section class="mb-10">
         <div class="flex items-center justify-between mb-4">
-          <h3 class="text-lg font-bold text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">品种分类</h3>
+          <h3 class="text-lg font-bold text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">品种分类</h3>
           <router-link to="/encyclopedia" class="text-sm text-[#C8A951] hover:underline flex items-center gap-1">
             查看全部 <ArrowRight class="w-3 h-3" />
           </router-link>
@@ -89,7 +89,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
             class="flex flex-col items-center gap-1.5 p-3 bg-white rounded-xl border border-gray-100 hover:border-[#C8A951] hover:shadow-md transition-all duration-200 group"
           >
             <span class="text-2xl group-hover:scale-110 transition-transform">{{ cat.icon }}</span>
-            <span class="text-xs text-gray-600 group-hover:text-[#1B5E20] font-medium">{{ cat.name }}</span>
+            <span class="text-xs text-gray-600 group-hover:text-[#1B4332] font-medium">{{ cat.name }}</span>
           </router-link>
         </div>
       </section>
@@ -155,7 +155,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
           <!-- News -->
           <div class="lg:col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
             <div class="px-5 py-3 border-b border-gray-100 flex items-center justify-between">
-              <h3 class="font-bold text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">热门资讯</h3>
+              <h3 class="font-bold text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">热门资讯</h3>
               <router-link to="/news" class="text-sm text-[#C8A951] hover:underline flex items-center gap-1">
                 更多 <ArrowRight class="w-3 h-3" />
               </router-link>
@@ -172,7 +172,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
                   <h4 class="text-sm font-medium text-gray-800 line-clamp-2 mb-1">{{ news.title }}</h4>
                   <p class="text-xs text-gray-400 line-clamp-1">{{ news.summary }}</p>
                   <div class="flex items-center gap-3 mt-2">
-                    <span class="text-xs px-2 py-0.5 bg-[#1B5E20]/5 text-[#1B5E20] rounded-full">{{ news.category }}</span>
+                    <span class="text-xs px-2 py-0.5 bg-[#1B4332]/5 text-[#1B4332] rounded-full">{{ news.category }}</span>
                     <span class="text-xs text-gray-400 flex items-center gap-1"><Clock class="w-3 h-3" />{{ news.publishTime.slice(5, 16) }}</span>
                     <span class="text-xs text-gray-400 flex items-center gap-1"><Eye class="w-3 h-3" />{{ news.viewCount }}</span>
                   </div>
@@ -184,7 +184,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
           <!-- Trade Quick View -->
           <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
             <div class="px-5 py-3 border-b border-gray-100 flex items-center justify-between">
-              <h3 class="font-bold text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">最新供求</h3>
+              <h3 class="font-bold text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">最新供求</h3>
               <router-link to="/trade" class="text-sm text-[#C8A951] hover:underline flex items-center gap-1">
                 更多 <ArrowRight class="w-3 h-3" />
               </router-link>
@@ -215,7 +215,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
       <section class="mb-10">
         <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
           <div class="px-5 py-3 border-b border-gray-100 flex items-center justify-between">
-            <h3 class="font-bold text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">市场价格快览</h3>
+            <h3 class="font-bold text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">市场价格快览</h3>
             <router-link to="/market" class="text-sm text-[#C8A951] hover:underline flex items-center gap-1">
               查看全部 <ArrowRight class="w-3 h-3" />
             </router-link>
@@ -238,9 +238,9 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
                   v-for="item in priceStore.priceList.slice(0, 12)"
                   :key="item.id"
                   @click="router.push(`/herb/${item.herbId}`)"
-                  class="border-b border-gray-50 hover:bg-[#1B5E20]/5 cursor-pointer transition-colors"
+                  class="border-b border-gray-50 hover:bg-[#1B4332]/5 cursor-pointer transition-colors"
                 >
-                  <td class="px-4 py-3 font-medium text-[#1B5E20]">{{ item.herbName }}</td>
+                  <td class="px-4 py-3 font-medium text-[#1B4332]">{{ item.herbName }}</td>
                   <td class="px-4 py-3 text-gray-500">{{ item.spec }}</td>
                   <td class="px-4 py-3 text-gray-500">{{ item.market }}</td>
                   <td class="px-4 py-3 text-right font-medium">¥{{ formatPrice(item.price) }}</td>

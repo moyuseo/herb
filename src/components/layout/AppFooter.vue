@@ -8,7 +8,7 @@
         <div>
           <div class="flex items-center gap-2 mb-4">
             <div class="w-8 h-8 bg-[#C8A951] rounded-lg flex items-center justify-center">
-              <span class="text-[#1B5E20] font-bold text-sm">本</span>
+              <span class="text-[#1B4332] font-bold text-sm">本</span>
             </div>
             <span class="text-white font-bold" style="font-family: 'Noto Serif SC', serif;">本草行情</span>
           </div>

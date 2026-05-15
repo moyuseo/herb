@@ -24,12 +24,12 @@ function handleSearch() {
 </script>
 
 <template>
-  <header class="bg-gradient-to-r from-[#1B5E20] to-[#2E7D32] shadow-lg sticky top-0 z-50">
+  <header class="bg-gradient-to-r from-[#1B4332] to-[#2D5A47] shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-center justify-between h-16">
         <router-link to="/" class="flex items-center gap-3 shrink-0">
           <div class="w-10 h-10 bg-[#C8A951] rounded-lg flex items-center justify-center">
-            <span class="text-[#1B5E20] font-bold text-lg">本</span>
+            <span class="text-[#1B4332] font-bold text-lg">本</span>
           </div>
           <div>
             <h1 class="text-white text-lg font-bold tracking-wide" style="font-family: 'Noto Serif SC', serif;">本草行情</h1>
@@ -59,7 +59,7 @@ function handleSearch() {
             />
             <Search class="absolute left-2.5 top-1.5 w-4 h-4 text-green-200" />
           </div>
-          <button class="px-4 py-1.5 text-sm bg-[#C8A951] text-[#1B5E20] font-medium rounded-full hover:bg-[#d4b85e] transition-colors">
+          <button class="px-4 py-1.5 text-sm bg-[#C8A951] text-[#1B4332] font-medium rounded-full hover:bg-[#d4b85e] transition-colors">
             登录
           </button>
         </div>
@@ -72,7 +72,7 @@ function handleSearch() {
     </div>
 
     <transition name="slide">
-      <div v-if="mobileMenuOpen" class="lg:hidden bg-[#1B5E20] border-t border-white/10 pb-4">
+      <div v-if="mobileMenuOpen" class="lg:hidden bg-[#1B4332] border-t border-white/10 pb-4">
         <div class="px-4 pt-2 pb-3">
           <div class="relative">
             <input

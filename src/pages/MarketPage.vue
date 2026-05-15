@@ -45,7 +45,7 @@ function onRowClick(row: any) {
 <template>
   <div class="min-h-screen bg-[#FAF8F5] py-6 px-4">
     <div class="max-w-7xl mx-auto">
-      <h1 class="text-2xl font-bold text-[#1B5E20] mb-6" style="font-family: 'Noto Serif SC', serif;">行情价格中心</h1>
+      <h1 class="text-2xl font-bold text-[#1B4332] mb-6" style="font-family: 'Noto Serif SC', serif;">行情价格中心</h1>
 
       <el-tabs v-model="activeTab" class="mb-6">
         <el-tab-pane label="市场价格" name="market" />
@@ -62,7 +62,7 @@ function onRowClick(row: any) {
         <el-table :data="filteredMarketData" stripe @row-click="onRowClick" class="cursor-pointer">
           <el-table-column prop="herbName" label="药材名称" min-width="120">
             <template #default="{ row }">
-              <span class="font-medium text-[#1B5E20]">{{ row.herbName }}</span>
+              <span class="font-medium text-[#1B4332]">{{ row.herbName }}</span>
             </template>
           </el-table-column>
           <el-table-column prop="spec" label="规格" min-width="100" />
@@ -106,7 +106,7 @@ function onRowClick(row: any) {
         <el-table :data="filteredOriginData" stripe @row-click="onRowClick" class="cursor-pointer">
           <el-table-column prop="herbName" label="药材名称" min-width="120">
             <template #default="{ row }">
-              <span class="font-medium text-[#1B5E20]">{{ row.herbName }}</span>
+              <span class="font-medium text-[#1B4332]">{{ row.herbName }}</span>
             </template>
           </el-table-column>
           <el-table-column prop="spec" label="规格" min-width="100" />

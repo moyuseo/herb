@@ -73,7 +73,7 @@ function renderChart() {
       smooth: true,
       symbol: 'none',
       lineStyle: { width: 2 },
-      itemStyle: { color: ['#1B5E20', '#C8A951', '#E53935', '#43A047'][idx % 4] },
+      itemStyle: { color: ['#1B4332', '#C8A951', '#E53935', '#43A047'][idx % 4] },
       areaStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
           { offset: 0, color: 'rgba(27,94,32,0.15)' },
@@ -113,18 +113,18 @@ onUnmounted(() => {
 <template>
   <div class="min-h-screen bg-[#FAF8F5] py-6 px-4">
     <div class="max-w-7xl mx-auto">
-      <h1 class="text-2xl font-bold text-[#1B5E20] mb-6" style="font-family: 'Noto Serif SC', serif;">历史价格查询</h1>
+      <h1 class="text-2xl font-bold text-[#1B4332] mb-6" style="font-family: 'Noto Serif SC', serif;">历史价格查询</h1>
 
       <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
         <div class="flex items-center gap-4 mb-6">
           <el-input v-model="herbName" placeholder="输入药材名称搜索" clearable class="w-64" @keyup.enter="onSearch" />
-          <button class="px-4 py-2 bg-[#1B5E20] text-white rounded-lg hover:bg-[#2E7D32] transition-colors" @click="onSearch">
+          <button class="px-4 py-2 bg-[#1B4332] text-white rounded-lg hover:bg-[#2D5A47] transition-colors" @click="onSearch">
             查询
           </button>
         </div>
 
         <div v-if="currentHerb" class="mb-4">
-          <h2 class="text-lg font-semibold text-[#1B5E20]">{{ currentHerb.name }}</h2>
+          <h2 class="text-lg font-semibold text-[#1B4332]">{{ currentHerb.name }}</h2>
         </div>
 
         <div v-if="currentHerb" class="flex items-center gap-2 mb-6">
@@ -134,8 +134,8 @@ onUnmounted(() => {
             :class="[
               'px-3 py-1 rounded-full text-sm border transition-colors',
               activeRange === range.value
-                ? 'bg-[#1B5E20] text-white border-[#1B5E20]'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-[#1B5E20]'
+                ? 'bg-[#1B4332] text-white border-[#1B4332]'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-[#1B4332]'
             ]"
             @click="activeRange = range.value"
           >

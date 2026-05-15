@@ -46,7 +46,7 @@ function initChart() {
     data: h.prices,
     smooth: true,
     lineStyle: { width: 2 },
-    itemStyle: { color: ['#1B5E20', '#C8A951', '#E53935', '#43A047'][idx % 4] },
+    itemStyle: { color: ['#1B4332', '#C8A951', '#E53935', '#43A047'][idx % 4] },
     areaStyle: { opacity: 0.05 },
   }))
 
@@ -100,7 +100,7 @@ function goBack() { router.back() }
 <template>
   <div class="min-h-screen bg-[#FAF8F5]">
     <div class="max-w-5xl mx-auto px-4 py-6">
-      <button @click="goBack" class="flex items-center gap-1 text-sm mb-4 text-[#1B5E20] hover:underline">
+      <button @click="goBack" class="flex items-center gap-1 text-sm mb-4 text-[#1B4332] hover:underline">
         <ArrowLeft :size="18" /> 返回
       </button>
 
@@ -108,7 +108,7 @@ function goBack() { router.back() }
         <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
           <div class="flex items-start justify-between">
             <div>
-              <h1 class="text-2xl font-bold text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">{{ herb.name }}</h1>
+              <h1 class="text-2xl font-bold text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">{{ herb.name }}</h1>
               <p class="text-gray-500 text-sm mt-1">别名：{{ herb.alias.join('、') }}</p>
             </div>
             <span class="px-3 py-1 rounded-full text-xs font-medium text-white bg-[#C8A951]">
@@ -122,13 +122,13 @@ function goBack() { router.back() }
             <div><span class="text-gray-400 text-xs">归经</span><p class="text-sm font-medium mt-1">{{ herb.meridian.join('、') }}</p></div>
           </div>
           <div class="mt-4 pt-4 border-t border-gray-100">
-            <p class="text-sm"><span class="font-medium text-[#1B5E20]">功效：</span>{{ herb.efficacy }}</p>
+            <p class="text-sm"><span class="font-medium text-[#1B4332]">功效：</span>{{ herb.efficacy }}</p>
             <p class="text-sm mt-2"><span class="font-medium text-red-600">禁忌：</span>{{ herb.contraindication }}</p>
           </div>
         </div>
 
         <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
-          <h2 class="text-lg font-bold mb-4 text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">
+          <h2 class="text-lg font-bold mb-4 text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">
             <TrendingUp :size="20" class="inline mr-1" />多规格价格对比
           </h2>
           <div class="overflow-x-auto">
@@ -162,26 +162,26 @@ function goBack() { router.back() }
         </div>
 
         <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
-          <h2 class="text-lg font-bold mb-4 text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">
+          <h2 class="text-lg font-bold mb-4 text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">
             <TrendingUp :size="20" class="inline mr-1" />价格走势
           </h2>
           <div ref="chartRef" class="w-full h-72"></div>
         </div>
 
         <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
-          <h2 class="text-lg font-bold mb-4 text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">
+          <h2 class="text-lg font-bold mb-4 text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">
             <MapPin :size="20" class="inline mr-1" />产地分布
           </h2>
           <div ref="mapRef" class="w-full h-72 rounded-lg z-0"></div>
         </div>
 
         <div v-if="relatedNews.length" class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
-          <h2 class="text-lg font-bold mb-4 text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">
+          <h2 class="text-lg font-bold mb-4 text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">
             <Clock :size="20" class="inline mr-1" />相关资讯
           </h2>
           <div class="space-y-3">
             <router-link v-for="n in relatedNews" :key="n.id" :to="`/news/${n.id}`"
-              class="flex items-center justify-between py-2 border-b border-gray-50 last:border-0 hover:text-[#1B5E20] transition-colors">
+              class="flex items-center justify-between py-2 border-b border-gray-50 last:border-0 hover:text-[#1B4332] transition-colors">
               <span class="text-sm truncate flex-1">{{ n.title }}</span>
               <span class="text-xs text-gray-400 ml-3">{{ n.publishTime.slice(5, 16) }}</span>
             </router-link>
@@ -189,7 +189,7 @@ function goBack() { router.back() }
         </div>
 
         <div v-if="relatedTrades.length" class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
-          <h2 class="text-lg font-bold mb-4 text-[#1B5E20]" style="font-family: 'Noto Serif SC', serif;">
+          <h2 class="text-lg font-bold mb-4 text-[#1B4332]" style="font-family: 'Noto Serif SC', serif;">
             <Eye :size="20" class="inline mr-1" />相关供求
           </h2>
           <div class="space-y-3">

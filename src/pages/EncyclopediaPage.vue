@@ -26,20 +26,20 @@ function goDetail(id: number) {
 <template>
   <div class="min-h-screen bg-[#FAF8F5]">
     <div class="max-w-6xl mx-auto px-4 py-8">
-      <h1 class="text-2xl font-bold text-[#1B5E20] mb-6" style="font-family: 'Noto Serif SC', serif;">药材百科</h1>
+      <h1 class="text-2xl font-bold text-[#1B4332] mb-6" style="font-family: 'Noto Serif SC', serif;">药材百科</h1>
 
       <div class="flex flex-col md:flex-row md:items-center gap-4 mb-6">
         <div class="flex flex-wrap gap-2">
           <button
             v-for="cat in categories"
             :key="cat"
-            :class="['px-3 py-1.5 rounded-full text-sm transition-colors', activeCategory === cat ? 'bg-[#1B5E20] text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-[#1B5E20]']"
+            :class="['px-3 py-1.5 rounded-full text-sm transition-colors', activeCategory === cat ? 'bg-[#1B4332] text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-[#1B4332]']"
             @click="activeCategory = cat"
           >{{ cat }}</button>
         </div>
         <div class="relative md:ml-auto md:w-64">
           <Search class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <input v-model="keyword" placeholder="搜索药材名称" class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 bg-white text-sm focus:outline-none focus:border-[#1B5E20]" />
+          <input v-model="keyword" placeholder="搜索药材名称" class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 bg-white text-sm focus:outline-none focus:border-[#1B4332]" />
         </div>
       </div>
 
@@ -54,7 +54,7 @@ function goDetail(id: number) {
             <img :src="herb.image" :alt="herb.name" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-3">
-            <h3 class="font-bold text-[#1B5E20] text-sm">{{ herb.name }}</h3>
+            <h3 class="font-bold text-[#1B4332] text-sm">{{ herb.name }}</h3>
             <p class="text-xs text-gray-400 mt-0.5">{{ herb.family }} · {{ herb.part }}</p>
             <p class="text-xs text-gray-500 mt-1 line-clamp-2">{{ herb.efficacy }}</p>
           </div>

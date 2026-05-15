@@ -33,7 +33,7 @@ function goBack() {
 <template>
   <div class="min-h-screen bg-[#FAF8F5]" v-if="article">
     <div class="max-w-4xl mx-auto px-4 py-8">
-      <button @click="goBack" class="flex items-center gap-1 text-sm text-gray-500 hover:text-[#1B5E20] mb-6 transition-colors">
+      <button @click="goBack" class="flex items-center gap-1 text-sm text-gray-500 hover:text-[#1B4332] mb-6 transition-colors">
         <ArrowLeft class="w-4 h-4" />返回列表
       </button>
 
@@ -41,7 +41,7 @@ function goBack() {
         <h1 class="text-2xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">{{ article.title }}</h1>
 
         <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6 pb-6 border-b border-gray-100">
-          <span class="flex items-center gap-1 px-2 py-0.5 rounded bg-[#1B5E20]/10 text-[#1B5E20] font-medium">
+          <span class="flex items-center gap-1 px-2 py-0.5 rounded bg-[#1B4332]/10 text-[#1B4332] font-medium">
             <Tag class="w-3 h-3" />{{ article.category }}
           </span>
           <span class="flex items-center gap-1"><Clock class="w-4 h-4" />{{ article.publishTime }}</span>
@@ -52,7 +52,7 @@ function goBack() {
       </article>
 
       <section v-if="relatedHerbs.length" class="mt-8">
-        <h2 class="text-xl font-semibold text-[#1B5E20] mb-4" style="font-family: 'Noto Serif SC', serif;">相关药材</h2>
+        <h2 class="text-xl font-semibold text-[#1B4332] mb-4" style="font-family: 'Noto Serif SC', serif;">相关药材</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div
             v-for="herb in relatedHerbs"
@@ -68,7 +68,7 @@ function goBack() {
       </section>
 
       <section v-if="relatedNews.length" class="mt-8">
-        <h2 class="text-xl font-semibold text-[#1B5E20] mb-4" style="font-family: 'Noto Serif SC', serif;">相关新闻</h2>
+        <h2 class="text-xl font-semibold text-[#1B4332] mb-4" style="font-family: 'Noto Serif SC', serif;">相关新闻</h2>
         <div class="space-y-3">
           <div
             v-for="news in relatedNews"
