@@ -58,7 +58,7 @@ function goToDetail(id: number) {
           <img :src="item.coverImage" :alt="item.title" class="w-48 h-36 object-cover flex-shrink-0" loading="lazy" />
           <div class="flex flex-col justify-between p-4 flex-1 min-w-0">
             <div>
-              <h3 class="text-lg font-semibold text-gray-800 line-clamp-1 mb-1">{{ item.title }}</h3>
+              <h3 class="text-lg font-semibold text-[#1B4332] line-clamp-1 mb-1">{{ item.title }}</h3>
               <p class="text-sm text-gray-500 line-clamp-2">{{ item.summary }}</p>
             </div>
             <div class="flex items-center gap-4 text-xs text-gray-400 mt-2">

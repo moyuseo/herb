@@ -38,7 +38,7 @@ function goBack() {
       </button>
 
       <article class="bg-white rounded-xl border border-gray-100 shadow-sm p-8">
-        <h1 class="text-2xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">{{ article.title }}</h1>
+        <h1 class="text-2xl font-bold text-[#1B4332] mb-4" style="font-family: 'Noto Serif SC', serif;">{{ article.title }}</h1>
 
         <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6 pb-6 border-b border-gray-100">
           <span class="flex items-center gap-1 px-2 py-0.5 rounded bg-[#1B4332]/10 text-[#1B4332] font-medium">
@@ -61,7 +61,7 @@ function goBack() {
             class="bg-white rounded-xl border border-gray-100 shadow-sm p-4 cursor-pointer hover:shadow-md hover:border-[#C8A951] transition-all"
           >
             <img :src="herb!.image" :alt="herb!.name" class="w-full h-28 object-cover rounded-lg mb-2" loading="lazy" />
-            <p class="text-sm font-medium text-gray-800">{{ herb!.name }}</p>
+            <p class="text-sm font-medium text-[#1B4332]">{{ herb!.name }}</p>
             <p class="text-xs text-gray-400 mt-1">{{ herb!.alias.join('、') }}</p>
           </div>
         </div>

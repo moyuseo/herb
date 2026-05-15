@@ -111,7 +111,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
               >
                 <div class="flex items-center gap-3">
                   <span class="w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center" :class="idx < 3 ? 'bg-red-500 text-white' : 'bg-red-100 text-red-600'">{{ idx + 1 }}</span>
-                  <span class="font-medium text-gray-800">{{ item.herbName }}</span>
+                  <span class="font-medium text-[#1B4332]">{{ item.herbName }}</span>
                   <span class="text-xs text-gray-400">{{ item.spec }}</span>
                 </div>
                 <div class="flex items-center gap-4">
@@ -136,7 +136,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
               >
                 <div class="flex items-center gap-3">
                   <span class="w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center" :class="idx < 3 ? 'bg-green-500 text-white' : 'bg-green-100 text-green-600'">{{ idx + 1 }}</span>
-                  <span class="font-medium text-gray-800">{{ item.herbName }}</span>
+                  <span class="font-medium text-[#1B4332]">{{ item.herbName }}</span>
                   <span class="text-xs text-gray-400">{{ item.spec }}</span>
                 </div>
                 <div class="flex items-center gap-4">
@@ -169,7 +169,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
               >
                 <img :src="news.coverImage" :alt="news.title" class="w-24 h-16 object-cover rounded-lg shrink-0" loading="lazy" />
                 <div class="flex-1 min-w-0">
-                  <h4 class="text-sm font-medium text-gray-800 line-clamp-2 mb-1">{{ news.title }}</h4>
+                  <h4 class="text-sm font-medium text-[#1B4332] line-clamp-2 mb-1">{{ news.title }}</h4>
                   <p class="text-xs text-gray-400 line-clamp-1">{{ news.summary }}</p>
                   <div class="flex items-center gap-3 mt-2">
                     <span class="text-xs px-2 py-0.5 bg-[#1B4332]/5 text-[#1B4332] rounded-full">{{ news.category }}</span>
@@ -196,7 +196,7 @@ const demandItems = computed(() => tradeStore.demandList.slice(0, 4))
                 class="p-3 rounded-lg border border-gray-100 hover:border-[#C8A951] transition-colors"
               >
                 <div class="flex items-center justify-between mb-1.5">
-                  <span class="font-medium text-gray-800">{{ item.herbName }}</span>
+                  <span class="font-medium text-[#1B4332]">{{ item.herbName }}</span>
                   <span class="text-xs px-2 py-0.5 rounded-full" :class="item.type === 'supply' ? 'bg-green-50 text-green-600' : 'bg-orange-50 text-orange-600'">
                     {{ item.type === 'supply' ? '供' : '求' }}
                   </span>
